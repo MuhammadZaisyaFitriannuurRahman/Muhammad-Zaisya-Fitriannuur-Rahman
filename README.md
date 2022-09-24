@@ -1,0 +1,82 @@
+# Muhammad-Zaisya-Fitriannuur-Rahman
+2111016210029
+Kelompok 5
+
+package praktikumalgoritma;
+
+import java.util.Scanner;
+
+public class hitung_persegi {
+
+    public static void main(String[] args) {
+        String ulang;
+        Scanner input = new Scanner(System.in);
+
+        do {
+            intro();
+            pilihMenu();
+
+            System.out.print("Apakah anda ingin mengulang program? (Y/N) : ");
+            ulang = input.nextLine();
+        } while (ulang.equalsIgnoreCase("Y"));
+        outro();
+    }
+
+    static void intro() {
+        System.out.println("Selamat Datang di Program Menghitung Luas dan Keliling Persegi");
+        System.out.println("1. Menghitung luas persegi");
+        System.out.println("2. Menghitung keliling persegi\n");
+    }
+
+    static void outro() {
+        System.out.println("");
+        System.out.println("Program telah selesai");
+    }
+
+    static void pilihMenu() {
+        int choose;
+        double luas = 0, keliling = 0;
+        Scanner msk = new Scanner(System.in);
+
+        do {
+            System.out.print("Silahkan pilih ingin menghitung luas atau keliling : ");
+            choose = msk.nextInt();
+            System.out.println("");
+
+            if (choose > 2 || choose < 1) {
+                System.out.println("Menu yang anda pilih tidak ada. Silakan pilih menu sesuai angka yang sudah disebutkan");
+            }
+
+            switch (choose) {
+                case 1:
+                    System.out.println("Anda memilih menghitung luas");
+                    System.out.print("Silahkan masukkan sisi yang anda inginkan : ");
+                    int sisiLuas = msk.nextInt();
+                    luas = luasPersegi(sisiLuas);
+                    System.out.println("Luas Persegi adalah : " + luas);
+                    break;
+
+                case 2:
+                    System.out.println("Anda memilih menghitung keliling");
+                    System.out.print("Silahkan masukkan sisi yang anda inginkan : ");
+                    int sisiKeliling = msk.nextInt();
+                    keliling = kelilingPersegi(sisiKeliling);
+                    System.out.println("Keliling Persegi adalah : " + keliling);
+                    break;
+
+            }
+        } while (choose > 2 || choose < 1);
+
+    }
+
+    static double luasPersegi(double x) {
+        double luas = x * x;
+        return luas;
+    }
+
+    static double kelilingPersegi(double x) {
+        double keliling = x * 4;
+        return keliling;
+
+    }
+}
